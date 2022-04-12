@@ -35,5 +35,7 @@ jobs:
         run: mvn -Prelease-nacos -Dmaven.test.skip=true clean install -U
       - name: Test With Maven
         run: mvn -Prelease-nacos clean test -DforkCount=0
-      - name: Test With Maven nodex
+      - name: Test With Maven without nodex (JacksonUtilsTest only)
+        run: mvn -pl common test -Dtest=com.alibaba.nacos.common.utils.JacksonUtilsTest
+      - name: Test With Maven nodex (JacksonUtilsTest only)
         run: mvn -pl common edu.illinois:nondex-maven-plugin:1.1.2:nondex -Dtest=com.alibaba.nacos.common.utils.JacksonUtilsTest
