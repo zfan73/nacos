@@ -16,6 +16,7 @@
 
 package com.alibaba.nacos.common.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
 /**
@@ -27,10 +28,12 @@ public class RestResult<T> implements Serializable {
     
     private static final long serialVersionUID = 6095433538316185017L;
     
+    @JsonProperty(index = 1)
     private int code;
     
     private String message;
     
+    @JsonProperty(index = 2)
     private T data;
     
     public RestResult() {
