@@ -476,10 +476,13 @@ public class JacksonUtilsTest {
     
     static class TestOfAtomicObject {
         
+        @JsonProperty(index = 1)
         public AtomicLong aLong = new AtomicLong(0);
         
+        @JsonProperty(index = 2)
         public AtomicInteger aInteger = new AtomicInteger(1);
         
+        @JsonProperty(index = 3)
         public AtomicBoolean aBoolean = new AtomicBoolean(false);
         
         @Override
@@ -560,10 +563,12 @@ public class JacksonUtilsTest {
     
     static class TestOfGetter {
         
+        @JsonProperty(index = 2)
         public String getKey() {
             return "key";
         }
         
+        @JsonProperty(index = 1)
         public String getValue() {
             return "value";
         }
