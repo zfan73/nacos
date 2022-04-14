@@ -36,7 +36,7 @@ import java.math.BigDecimal;
 import java.nio.charset.Charset;
 import java.util.Collections;
 import java.util.Date;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -434,7 +434,7 @@ public class JacksonUtilsTest {
 
     @Test
     public void testToJsonBytes() {
-        LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
+        HashMap<String, Object> map = new HashMap<String, Object>();
         map.put("string", "你好，中国！");
         map.put("integer", 999);
         RestResult<Map<String, Object>> restResult = new RestResult();
@@ -476,13 +476,10 @@ public class JacksonUtilsTest {
     
     static class TestOfAtomicObject {
         
-        @JsonProperty(index = 1)
         public AtomicLong aLong = new AtomicLong(0);
         
-        @JsonProperty(index = 2)
         public AtomicInteger aInteger = new AtomicInteger(1);
         
-        @JsonProperty(index = 3)
         public AtomicBoolean aBoolean = new AtomicBoolean(false);
         
         @Override
@@ -563,12 +560,10 @@ public class JacksonUtilsTest {
     
     static class TestOfGetter {
         
-        @JsonProperty(index = 2)
         public String getKey() {
             return "key";
         }
         
-        @JsonProperty(index = 1)
         public String getValue() {
             return "value";
         }
